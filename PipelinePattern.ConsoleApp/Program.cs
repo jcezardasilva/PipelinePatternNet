@@ -19,7 +19,8 @@ namespace PipelinePattern
                 .Pipe(new IsBirthDateSettedConditionStep()
                     .WithNext(new IsNotBirthDateSettedConditionStep()))
                 .Pipe(new IterationStep<KeyValuePair<string,string>>()
-                    .With(new CreateEmailCollectionStep()))
+                    .With(new CreateEmailCollectionStep())
+                    .Pipe(new ChangePersonEmailStep()))
                 .GetOutput();
 
             var example = output.Data[Person.PERSON];
