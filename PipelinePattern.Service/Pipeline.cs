@@ -9,13 +9,12 @@ namespace PipelinePattern.Core
 
         public Pipeline()
         {
-        }
 
+        }
         public Pipeline(T input)
         {
             this.input = input;
         }
-        
         public Pipeline<TIn> Initialize<TIn>(TIn i)
         {
             return new Pipeline<TIn>(i);

@@ -12,5 +12,6 @@ namespace PipelinePattern.Domain.Entities
         public string? Name { get; set; }
         public DateTime? BirthDate { get; set; }
         public int? Age { get; set; }
+        public List<KeyValuePair<string, string>> Emails { get; set; } = new List<KeyValuePair<string, string>>();
     }
 }
