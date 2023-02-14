@@ -27,15 +27,15 @@ namespace PipelinePattern.Core
             }
 
             var collection = _collectionStep.Process(input);
-            List<TCollection> results = new List<TCollection>();
+            var results = new List<TCollection>();
             for (var i = 0; i < collection.Count(); i++)
             {
                 var item = collection.ElementAt(i);
-                TCollection output;
                 foreach(var step in _steps)
                 {
                     item = step.Process(item);
                 }
+                results.Add(item);
             }
             input.Data.Add("_results", results);
             return input;
